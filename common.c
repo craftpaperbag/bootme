@@ -58,9 +58,26 @@ void printf(const char *fmt, ...) {
           }
           break;
         }
-        case 'd':
-          // TODO 整数
+        case 'd': {
+          int value = va_arg(vargs, int);
+          unsigned magnitude = value;
+          if (value < 0) {
+            putchar('-');
+            magnitude = -magnitude;
+          }
+
+          unsigned divisor = 1;
+          while (magnitude / divisor > 9)
+            divisor *= 10;
+
+          while (divisor > 0) {
+            putchar('0' + magnitude / divisor);
+            magnitude %= divisor;
+            divisor /= 10;
+          }
+
           break;
+        }
         case 'x':
           // TODO 16進数
           break;

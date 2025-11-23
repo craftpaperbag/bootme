@@ -27,6 +27,7 @@ void kernel_main(void) {
   memset(__bss, 0, (size_t)__bss_end - (size_t)__bss);
   
   printf("\n\nHello %s\n", "World XD");
+  printf("Let's calc 1+1... -> %d", 2);
 
   // 無限ループ
   for (;;) {
